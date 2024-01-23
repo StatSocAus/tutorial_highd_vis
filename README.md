@@ -47,5 +47,5 @@ install.packages(c("ggplot2", "tourr", "mulgar", "geozoo", "langevitour", "detou
 4. Open your RStudio be clicking on `tutorial.Rproj`. 
 
 GitHub repo with all materials is 
-[https://statsocaus.github.io/tutorial_effective_data_plots/](https://statsocaus.github.io/tutorial_effective_data_plots/).
+[https://statsocaus.github.io/tutorial_highd_vis/](https://statsocaus.github.io/tutorial_highd_vis/).
 
