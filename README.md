@@ -19,18 +19,18 @@ Background: Participants should have a good working knowledge of R, and some bac
 
 | time | topic |
 |------|-------|
-|1:00-1:20|	Introduction: What is high-dimensional data, why visualise and benefits| 
-|1:20-1:50|	New methodology: looking at high-dimensions using the shadows |
-|1:50-2:30|	What we learn that we would not have learned from contemporary methods, principal component analysis, non-linear dimension reduction|
+|1:00-1:20|	Introduction: What is high-dimensional data, why visualise and overview of methods| 
+|1:20-1:45|	Basics of linear projections, and recognising high-d structure|
+|1:45-2:30|	Effectively reducing your data dimension, when combined with non-linear dimension reduction|
 |2:30-3:00|	BREAK|
 |3:00-3:45|	Understanding clusters in data using visualisation|
 |3:45-4:30|	Building better classification models with visual input|
 
-[Session 1 Slides]()
+[Session 1 Slides (COMING SOON)]()
 
-[Session 2 Slides]()
+[Session 2 Slides (COMING SOON)]()
 
-[Zip file of materials]()
+[Zip file of materials (COMING SOON)]()
 
 ## Getting started
 
@@ -40,9 +40,9 @@ Background: Participants should have a good working knowledge of R, and some bac
 install.packages(c("ggplot2", "tourr", "mulgar", "geozoo", "langevitour", "detourr", "MASS", "randomForest", "aweSOM", "cxhull", "mclust", "Rtsne", "e1071", "classifly", "plotly", "readr", "tidyr", "dplyr", "stringr", "colorspace",  "patchwork"), dependencies=c("Depends", "Imports"))
 ```
 
-2. Download the [Zip file of materials](https://statsocaus.github.io/tutorial_effective_data_plots/tutorial.zip) to your laptop, and unzip it. 
+2. Download the [Zip file of materials](https://statsocaus.github.io/tutorial_highd_vis/tutorial.zip) to your laptop, and unzip it. 
 
-3. Download just the R scripts, [slides1.R](https://statsocaus.github.io/tutorial_effective_data_plots/slides1.R), [slides2.R](https://statsocaus.github.io/tutorial_effective_data_plots/slides2.R)
+3. Download just the R scripts, [slides1.R](https://statsocaus.github.io/tutorial_highd_vis/slides1.R), [slides2.R](https://statsocaus.github.io/tutorial_highd_vis/slides2.R)
 
 4. Open your RStudio be clicking on `tutorial.Rproj`. 
 
