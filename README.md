@@ -6,7 +6,7 @@ Website: [https://StatSocAus.github.io/tutorial_highd_vis](https://StatSocAus.gi
 
 This is for scientists and data science practitioners who regularly work with high-dimensional data and are interested in learning how to better visualise this data. 
 
-**Presenter**: Dianne Cook is Professor of Business Analytics at Monash University in Melbourne, Australia.  She is a world leader in data visualisation, especially the visualisation of high-dimensional data using tours with low-dimensional projections, and projection pursuit.  She is currently focusing on bridging the gap between exploratory graphics and statistical inference.  Di is a Fellow of the American Statistical Association, past editor of the Journal of Computational and Graphical Statistics, current editor of the R Journal, elected Ordinary Member of the R Foundation, and elected member of the International Statistical Institute.
+**Presenter**: Dianne Cook is Professor of Business Analytics at Monash University in Melbourne, Australia.  She is a world leader in data visualisation, especially the visualisation of high-dimensional data using tours with low-dimensional projections, and projection pursuit.  She also works on bridging the gap between exploratory graphics and statistical inference.  Di is a Fellow of the American Statistical Association, past editor of the Journal of Computational and Graphical Statistics, and the R Journal, elected Ordinary Member of the R Foundation, and elected member of the International Statistical Institute.
 
 ## Structure of tutorial
 
@@ -21,7 +21,7 @@ Background: Participants should have a good working knowledge of R, and some bac
 |------|-------|
 |1:00-1:20|	Introduction: What is high-dimensional data, why visualise and overview of methods| 
 |1:20-1:45|	Basics of linear projections, and recognising high-d structure|
-|1:45-2:30|	Effectively reducing your data dimension, when combined with non-linear dimension reduction|
+|1:45-2:30|	Effectively reducing your data dimension, in association with non-linear dimension reduction|
 |2:30-3:00|	BREAK|
 |3:00-3:45|	Understanding clusters in data using visualisation|
 |3:45-4:30|	Building better classification models with visual input|
