@@ -11,7 +11,7 @@ This is for scientists and data science practitioners who regularly work with hi
 ## Structure of tutorial
 
 - Review of common practice, and introduction to using tour methods
-- Application to supervised and unsupervised methods.
+- Application to dimension reduction, supervised and unsupervised methods.
 
 Background: Participants should have a good working knowledge of R, and some background in multivariate statistical methods and/or data mining techniques.
 
