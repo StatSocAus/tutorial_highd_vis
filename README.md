@@ -23,9 +23,9 @@ Background: Participants should have a good working knowledge of R, and some bac
 |3:00-3:45|	Understanding clusters in data using visualisation|
 |3:45-4:30|	Building better classification models with visual input|
 
-[Session 1 Slides (COMING SOON)]()
+[Session 1 Slides](https://statsocaus.github.io/tutorial_highd_vis/slides1.html)
 
-[Session 2 Slides (COMING SOON)]()
+[Session 2 Slides](https://statsocaus.github.io/tutorial_highd_vis/slides2.html)
 
 [Zip file of materials (COMING SOON)]()
 
