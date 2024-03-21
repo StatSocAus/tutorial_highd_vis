@@ -4,18 +4,15 @@
 
 Website: [https://StatSocAus.github.io/tutorial_highd_vis](https://StatSocAus.github.io/tutorial_highd_vis)
 
-This is for scientists and data science practitioners who regularly work with high-dimensional data and are interested in learning how to better visualise this data. 
+This is for scientists and data science practitioners who regularly work with high-dimensional data and models and are interested in learning how to better visualise them. You will learn about recognising structure in high-dimensional data, including clusters, outliers, non-linear relationships, and how this can be used with methods such as supervised classification, cluster analysis and non-linear dimension reduction. 
+
+Background: Participants should have a good working knowledge of R, and some background in multivariate statistical methods and/or data mining techniques.
 
 **Presenter**: Dianne Cook is Professor of Statistics at Monash University in Melbourne, Australia.  She is a world leader in data visualisation, especially the visualisation of high-dimensional data using tours with low-dimensional projections, and projection pursuit.  She also works on bridging the gap between exploratory graphics and statistical inference.  Di is a Fellow of the American Statistical Association, past editor of the Journal of Computational and Graphical Statistics, and the R Journal, elected Ordinary Member of the R Foundation, and elected member of the International Statistical Institute.
 
 ## Structure of tutorial
 
-- Review of common practice, and introduction to using tour methods
-- Application to dimension reduction, supervised and unsupervised methods.
-
 Background: Participants should have a good working knowledge of R, and some background in multivariate statistical methods and/or data mining techniques.
-
-## Course Schedule
 
 | time | topic |
 |------|-------|
