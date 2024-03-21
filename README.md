@@ -34,7 +34,13 @@ Background: Participants should have a good working knowledge of R, and some bac
 1. You should have a reasonably up to date version of R and R Studio, eg RStudio RStudio 2023.06.2 +561 and R version 4.3.1 (2023-06-16). Install the following packages, and their dependencies.
 
 ```
-install.packages(c("ggplot2", "tourr", "mulgar", "geozoo", "langevitour", "detourr", "MASS", "randomForest", "aweSOM", "cxhull", "mclust", "Rtsne", "e1071", "classifly", "plotly", "readr", "tidyr", "dplyr", "stringr", "colorspace",  "patchwork"), dependencies=c("Depends", "Imports"))
+install.packages(c("readr", "tidyr", "dplyr", "ggplot2", "tourr", "mulgar", "geozoo", "detourr", "palmerpenguins", "GGally", "MASS", "randomForest", "mclust", "crosstalk", "plotly", "viridis", "conflicted"), dependencies=c("Depends", "Imports"))
+```
+
+Ideally, you install this package from GitHub:
+
+```
+remotes::install_github("casperhart/detourr")
 ```
 
 2. Download the [Zip file of materials](https://statsocaus.github.io/tutorial_highd_vis/tutorial.zip) to your laptop, and unzip it. 

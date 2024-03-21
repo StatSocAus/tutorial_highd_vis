@@ -21,7 +21,6 @@ library(colorspace)
 library(patchwork)
 library(broom)
 library(palmerpenguins)
-library(ggbeeswarm)
 library(GGally)
 library(mulgar)
 library(conflicted)
@@ -29,9 +28,7 @@ library(conflicted)
 
 ```{r, include = FALSE}
 #| label: code-for-nice-slides
-library(DT)
-
-options(width = 200)
+options(width = 60, digits=2)
 knitr::opts_chunk$set(
   fig.width = 6,
   fig.height = 6,
@@ -68,6 +65,8 @@ p_tidy <- penguins |>
          fl=flipper_length_mm,
          bm=body_mass_g) |>
   na.omit()
+p_tidy_std <- p_tidy |>
+  mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
 ```
 
 ## Session 1  {.transition .center .center-align}

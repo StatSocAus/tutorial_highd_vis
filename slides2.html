@@ -740,37 +740,36 @@ Votes matrix for the random forest fit on penguins
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(crosstalk)</span>
 <span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
 <span id="cb9-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb9-4"><a href="" aria-hidden="true" tabindex="-1"></a>p_cl <span class="ot">&lt;-</span> p_tidy <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.numeric, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pspecies =</span> <span class="fu">predict</span>(p_lda, p_tidy)<span class="sc">$</span>class) <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href="" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bl<span class="sc">:</span>bm, species, pspecies) <span class="sc">|&gt;</span></span>
-<span id="cb9-8"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sp_jit =</span> <span class="fu">jitter</span>(<span class="fu">as.numeric</span>(species)),</span>
-<span id="cb9-9"><a href="" aria-hidden="true" tabindex="-1"></a>         <span class="at">psp_jit =</span> <span class="fu">jitter</span>(<span class="fu">as.numeric</span>(pspecies)))</span>
-<span id="cb9-10"><a href="" aria-hidden="true" tabindex="-1"></a>p_cl_shared <span class="ot">&lt;-</span> SharedData<span class="sc">$</span><span class="fu">new</span>(p_cl)</span>
-<span id="cb9-11"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="" aria-hidden="true" tabindex="-1"></a>detour_plot <span class="ot">&lt;-</span> <span class="fu">detour</span>(p_cl_shared, <span class="fu">tour_aes</span>(</span>
-<span id="cb9-13"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">projection =</span> bl<span class="sc">:</span>bm,</span>
-<span id="cb9-14"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">colour =</span> species)) <span class="sc">|&gt;</span></span>
-<span id="cb9-15"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tour_path</span>(<span class="fu">grand_tour</span>(<span class="dv">2</span>), </span>
-<span id="cb9-16"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">max_bases=</span><span class="dv">50</span>, <span class="at">fps =</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-17"><a href="" aria-hidden="true" tabindex="-1"></a>       <span class="fu">show_scatter</span>(<span class="at">alpha =</span> <span class="fl">0.9</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb9-18"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="st">"100%"</span>, <span class="at">height =</span> <span class="st">"450px"</span>)</span>
-<span id="cb9-19"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="" aria-hidden="true" tabindex="-1"></a>conf_mat <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(p_cl_shared, </span>
-<span id="cb9-21"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x =</span> <span class="sc">~</span>psp_jit,</span>
-<span id="cb9-22"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> <span class="sc">~</span>sp_jit,</span>
-<span id="cb9-23"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> <span class="sc">~</span>species,</span>
-<span id="cb9-24"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colors =</span> <span class="fu">viridis_pal</span>(<span class="at">option =</span> <span class="st">"D"</span>)(<span class="dv">3</span>),</span>
-<span id="cb9-25"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="dv">450</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-26"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">highlight</span>(<span class="at">on =</span> <span class="st">"plotly_selected"</span>, </span>
-<span id="cb9-27"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="at">off =</span> <span class="st">"plotly_doubleclick"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-28"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_trace</span>(<span class="at">type =</span> <span class="st">"scatter"</span>, </span>
-<span id="cb9-29"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="at">mode =</span> <span class="st">"markers"</span>)</span>
-<span id="cb9-30"><a href="" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-31"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">bscols</span>(</span>
-<span id="cb9-32"><a href="" aria-hidden="true" tabindex="-1"></a>     detour_plot, conf_mat,</span>
-<span id="cb9-33"><a href="" aria-hidden="true" tabindex="-1"></a>     <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb9-34"><a href="" aria-hidden="true" tabindex="-1"></a> )                 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="" aria-hidden="true" tabindex="-1"></a>p_cl <span class="ot">&lt;-</span> p_tidy_std <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pspecies =</span> <span class="fu">predict</span>(p_lda, p_tidy_std)<span class="sc">$</span>class) <span class="sc">|&gt;</span></span>
+<span id="cb9-6"><a href="" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(bl<span class="sc">:</span>bm, species, pspecies) <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sp_jit =</span> <span class="fu">jitter</span>(<span class="fu">as.numeric</span>(species)),</span>
+<span id="cb9-8"><a href="" aria-hidden="true" tabindex="-1"></a>         <span class="at">psp_jit =</span> <span class="fu">jitter</span>(<span class="fu">as.numeric</span>(pspecies)))</span>
+<span id="cb9-9"><a href="" aria-hidden="true" tabindex="-1"></a>p_cl_shared <span class="ot">&lt;-</span> SharedData<span class="sc">$</span><span class="fu">new</span>(p_cl)</span>
+<span id="cb9-10"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="" aria-hidden="true" tabindex="-1"></a>detour_plot <span class="ot">&lt;-</span> <span class="fu">detour</span>(p_cl_shared, <span class="fu">tour_aes</span>(</span>
+<span id="cb9-12"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">projection =</span> bl<span class="sc">:</span>bm,</span>
+<span id="cb9-13"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">colour =</span> species)) <span class="sc">|&gt;</span></span>
+<span id="cb9-14"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tour_path</span>(<span class="fu">grand_tour</span>(<span class="dv">2</span>), </span>
+<span id="cb9-15"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">max_bases=</span><span class="dv">50</span>, <span class="at">fps =</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-16"><a href="" aria-hidden="true" tabindex="-1"></a>       <span class="fu">show_scatter</span>(<span class="at">alpha =</span> <span class="fl">0.9</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-17"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="st">"100%"</span>, <span class="at">height =</span> <span class="st">"450px"</span>)</span>
+<span id="cb9-18"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="" aria-hidden="true" tabindex="-1"></a>conf_mat <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(p_cl_shared, </span>
+<span id="cb9-20"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x =</span> <span class="sc">~</span>psp_jit,</span>
+<span id="cb9-21"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y =</span> <span class="sc">~</span>sp_jit,</span>
+<span id="cb9-22"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> <span class="sc">~</span>species,</span>
+<span id="cb9-23"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colors =</span> <span class="fu">viridis_pal</span>(<span class="at">option =</span> <span class="st">"D"</span>)(<span class="dv">3</span>),</span>
+<span id="cb9-24"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="dv">450</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-25"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">highlight</span>(<span class="at">on =</span> <span class="st">"plotly_selected"</span>, </span>
+<span id="cb9-26"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="at">off =</span> <span class="st">"plotly_doubleclick"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-27"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_trace</span>(<span class="at">type =</span> <span class="st">"scatter"</span>, </span>
+<span id="cb9-28"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="at">mode =</span> <span class="st">"markers"</span>)</span>
+<span id="cb9-29"><a href="" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-30"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">bscols</span>(</span>
+<span id="cb9-31"><a href="" aria-hidden="true" tabindex="-1"></a>     detour_plot, conf_mat,</span>
+<span id="cb9-32"><a href="" aria-hidden="true" tabindex="-1"></a>     <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb9-33"><a href="" aria-hidden="true" tabindex="-1"></a> )                 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <br>
