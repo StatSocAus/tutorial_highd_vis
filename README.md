@@ -27,7 +27,7 @@ Background: Participants should have a good working knowledge of R, and some bac
 
 [Session 2 Slides](https://statsocaus.github.io/tutorial_highd_vis/slides2.html)
 
-[Zip file of materials (COMING SOON)]()
+[Zip file of materials](https://statsocaus.github.io/tutorial_highd_vis/tutorial.zip)
 
 ## Getting started
 
