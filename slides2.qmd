@@ -29,6 +29,7 @@ library(classifly)
 library(randomForest)
 library(geozoo)
 library(tourr)
+library(countdown)
 ```
 
 ```{r, include = FALSE}
@@ -72,6 +73,7 @@ p_tidy <- penguins |>
   na.omit()
 p_tidy_std <- p_tidy |>
   mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
+
 ```
 
 ## Session 2  {.transition .center .center-align}
@@ -448,6 +450,8 @@ s_p + e_p + plot_layout(ncol=2)
 
 Use the spin-and-brush approach to extract the clusters from the `c1` data.
 
+`r countdown(minutes = 5, seconds = 0)`
+
 ## Classification {.transition .center}
 
 ## What should you visualise?
@@ -490,7 +494,7 @@ ggplot(p_lda_pred_x1,
 
 Linear discriminant analysis is the ideal classifier for this data.
 
-## Random forests [(1/3)]{.f70}
+## Random forests [(1/2)]{.f70}
 
 :::: {.columns}
 ::: {.column style="font-size: 70%;"}
@@ -514,7 +518,7 @@ bushfires_rf
 :::
 ::::
 
-## Random forests [(2/3)]{.f70}
+## Random forests [(2/2)]{.f70}
 
 :::: {.columns}
 ::: {.column style="font-size: 70%;"}
@@ -625,7 +629,9 @@ bscols(
 
 ## [Your turn]{.orange2}
 
-Explore the misclassifications in the [random forest fit]{.orange2} of the [penguins]{.orange2} data, using the code provided.
+Explore the misclassifications in the [random forest fit]{.orange2} of the [penguins]{.orange2} data, using the code provided in the `slides2.R` file.
+
+`r countdown(minutes = 5, seconds = 0)`
 
 ## Cautions about high-dimensions
 

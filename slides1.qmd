@@ -24,6 +24,7 @@ library(palmerpenguins)
 library(GGally)
 library(mulgar)
 library(conflicted)
+library(countdown)
 ```
 
 ```{r, include = FALSE}
@@ -707,6 +708,8 @@ load("data/auswt20.rda")
 animate_xy(auswt20[,6:16], rescale=TRUE)
 ```
 
+`r countdown(minutes = 5, seconds = 0)`
+
 ## Dimension reduction {.transition .center .center-align}
 
 ## What is dimensionality?
@@ -1086,6 +1089,8 @@ pbmc <- readRDS("data/pbmc_pca_50.rds")
 animate_xy(pbmc[,1:9])
 ```
 :::
+
+`r countdown(minutes = 5, seconds = 0)`
 
 ## Key conceptual points
 
